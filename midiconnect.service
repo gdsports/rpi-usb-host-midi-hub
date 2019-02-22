@@ -1,0 +1,11 @@
+[Unit]
+Description=midiconnect service
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=idle
+User=pi
+ExecStart=/etc/rpi-midi-hub/midiconnect.sh
+
+[Install]
+WantedBy=multi-user.target

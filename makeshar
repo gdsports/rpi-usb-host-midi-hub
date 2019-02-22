@@ -1,0 +1,16 @@
+#!/bin/sh
+TMPDIR="/tmp/makeshar_$$"
+if [ ! -d $TMPDIR ]
+then
+	mkdir $TMPDIR
+fi
+cp -R * $TMPDIR
+if [ -f $TMPDIR/midihub.run ]
+then
+	rm $TMPDIR/midihub.run $TMPDIR/multimidicast-1.4.tar.gz
+fi
+makeself --needroot $TMPDIR midihub.run midihub ./install.sh
+if [ -d $TMPDIR ]
+then
+	rm -rf $TMPDIR
+fi
