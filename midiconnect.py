@@ -4,7 +4,7 @@ import re, os
 from subprocess import Popen, PIPE
 
 def os_system(command):
-    process = Popen(command, stdout=PIPE, shell=True)
+    process = Popen(command, stdout=PIPE, shell=True, encoding='utf8')
     while True:
         line = process.stdout.readline()
         if not line:
